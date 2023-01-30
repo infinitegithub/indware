@@ -2,8 +2,9 @@ const { MongoClient } = require("mongodb");
 const Express = require("express");
 const Cors = require("cors");
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
-const client = new MongoClient("mongodb+srv://infinitegithub:Hinata1*hyuga@cluster0.i1lmn78.mongodb.net/?retryWrites=true&w=majority");
+const client = new MongoClient(process.env.MONGODB_CONNECTION_STRING);
 const server = Express();
 
 server.use(bodyParser.json());

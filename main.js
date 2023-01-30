@@ -1,7 +1,7 @@
 const searchButton = document.getElementById('searchButton')
 searchButton.addEventListener('click', async () => {
     const term = document.getElementById('term').value
-    const response = await fetch(`http://localhost:3000/search?term=${term}`)
+    const response = await fetch(`https://indsto.onrender.com/search?term=${term}`)
     const stores = await response.json()
     const resultDiv = document.getElementById('result')
     resultDiv.innerHTML = stores.map(store => {
@@ -26,10 +26,11 @@ searchButton.addEventListener('click', async () => {
                 <td class="copy" data-clipboard-text="${store.StoreNumber}">${store.StoreNumber}</td>
                 <td class="copy" data-clipboard-text="${store.Brand}">${store.Brand}</td>
                 <td class="copy" data-clipboard-text="${store.LeadershipTeamEemail}">${store.LeadershipTeamEemail}</td>
+                <td class="copy" data-clipboard-text="${store.Phone}">${store.Phone}</td>
+
                 <td class="copy" data-clipboard-text="${store.StoreName}">${store.StoreName}</td>
                 <td class="copy" data-clipboard-text="${store.Address}">${store.Address}</td>
                 <td class="copy" data-clipboard-text="${store.City}">${store.City}</td>
-                <td class="copy" data-clipboard-text="${store.Phone}">${store.Phone}</td>
                 <td class="copy" data-clipboard-text="${store.Provance}">${store.Provance}</td>
                 <td class="copy" data-clipboard-text="${store.PostalCode}">${store.PostalCode}</td>
             </tr>
