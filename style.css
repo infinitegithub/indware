@@ -1,0 +1,32 @@
+  /*   .copy {
+        display: inline-block;
+    }/*  */
+  */ table {
+      border-collapse: collapse;
+  }
+
+  th,
+  td {
+      border: 1px solid #dddddd;
+      padding: 8px;
+      text-align: left;
+  }
+
+  tr:hover {
+      background-color: #f5f5f5;
+  }
+
+  .copy.copied {
+      background-color: green;
+      animation: pulse 2s ease;
+  }
+
+  @keyframes pulse {
+      0% {
+          background-color: blue;
+      }
+
+      100% {
+          background-color: green;
+      }
+  }
