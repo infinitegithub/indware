@@ -11,23 +11,11 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(Cors());
 
-var collection;
+let collection = client.db("indigp").collection("stores");
 
 server.get("/search", async (request, response) => {
     try {
-        let result = await collection.aggregate([/* 
-            {
-                "$search": {
-                    "autocomplete": {
-                        "query": `${request.query.term}`,
-                        "path": "string",
-                        "fuzzy": {
-                            "maxEdits": 2
-                        }
-                    }
-                }
-            }
-         */
+        let result = await collection.aggregate([
             {
                 '$search': {
                     'index': 'default',
@@ -49,7 +37,7 @@ server.get("/search", async (request, response) => {
 server.listen("3000", async () => {
     try {
         await client.connect();
-        collection = client.db("indigp").collection("stores");
+
     } catch (e) {
         console.log(e)
     }
